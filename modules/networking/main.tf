@@ -29,6 +29,7 @@ resource "aws_subnet" "this" {
   vpc_id            = aws_vpc.this.id
   tags = {
     Name = each.value.name
+    Access = each.value.public ? "Public" : "Private"
   }
   lifecycle {
     precondition {
